@@ -1,0 +1,200 @@
+<script>
+  // Fetch data from listings.json
+  fetch('/assets/js/listings.json')
+    .then(response => response.json())
+    .then(data => {
+      addDataToHTML(data);
+    })
+    .catch(error => {
+      console.error('Error fetching JSON:', error);
+    });
+
+  function addDataToHTML(listing) {
+    let showcase = document.querySelector('.showcase');
+    if (!showcase) {
+      console.error('.showcase element not found');
+      return;
+    }
+
+    // Iterate through each item in the listing data
+    listing.forEach(item => {
+      // Create a new anchor element
+      let newListings = document.createElement('a');
+      newListings.href = '/assets/pages/listings.html?id=' + item.id;
+      newListings.classList.add('items');
+
+      // Create the showcase-banner div
+      let bannerDiv = document.createElement('div');
+      bannerDiv.classList.add('showcase-banner');
+
+      // Create the first image element
+      let img1 = document.createElement('img');
+      img1.src = item.image;
+      img1.alt = item.name;
+      img1.width = 300;
+      img1.classList.add('product-img', 'default');
+
+      // Create the second image element
+      let img2 = document.createElement('img');
+      img2.src = item.image;
+      img2.alt = item.name;
+      img2.width = 300;
+      img2.classList.add('product-img', 'hover');
+
+      // Create the showcase-badge paragraph
+      let badgePara = document.createElement('p');
+      badgePara.classList.add('showcase-badge');
+      badgePara.textContent = '15%';
+
+      // Create the showcase-actions div
+      let actionsDiv = document.createElement('div');
+      actionsDiv.classList.add('showcase-actions');
+
+      // Create the button elements inside showcase-actions div
+      let buttons = ['heart-outline', 'eye-outline', 'repeat-outline', 'bag-add-outline'];
+      buttons.forEach(iconName => {
+        let button = document.createElement('button');
+        button.classList.add('btn-action');
+        let icon = document.createElement('ion-icon');
+        icon.name = iconName;
+        button.appendChild(icon);
+        actionsDiv.appendChild(button);
+      });
+
+      // Create the showcase-content div
+      let contentDiv = document.createElement('div');
+      contentDiv.classList.add('showcase-content');
+
+      // Create the category anchor element
+      let categoryAnchor = document.createElement('a');
+      categoryAnchor.href = '#';
+      categoryAnchor.classList.add('showcase-category');
+      categoryAnchor.textContent = 'jacket';
+
+      // Create the title anchor element
+      let titleAnchor = document.createElement('a');
+      titleAnchor.href = '#';
+      let titleHeading = document.createElement('h3');
+      titleHeading.classList.add('showcase-title');
+      titleHeading.textContent = item.name;
+      titleAnchor.appendChild(titleHeading);
+
+      // Create the showcase-rating div
+      let ratingDiv = document.createElement('div');
+      ratingDiv.classList.add('showcase-rating');
+
+      // Create the star icons inside showcase-rating div
+      for (let i = 0; i < 3; i++) {
+        let icon = document.createElement('ion-icon');
+        icon.name = 'star';
+        ratingDiv.appendChild(icon);
+      }
+      for (let i = 0; i < 2; i++) {
+        let icon = document.createElement('ion-icon');
+        icon.name = 'star-outline';
+        ratingDiv.appendChild(icon);
+      }
+
+      // Create the price-box div
+      let priceBoxDiv = document.createElement('div');
+      priceBoxDiv.classList.add('price-box');
+      let pricePara = document.createElement('p');
+      pricePara.classList.add('price');
+      pricePara.textContent = '$' + item.price;
+      let delPara = document.createElement('del');
+      delPara.textContent = '$75.00';
+      priceBoxDiv.appendChild(pricePara);
+      priceBoxDiv.appendChild(delPara);
+
+      // Append all created elements to their respective parents
+      bannerDiv.appendChild(img1);
+      bannerDiv.appendChild(img2);
+      bannerDiv.appendChild(badgePara);
+      bannerDiv.appendChild(actionsDiv);
+
+      contentDiv.appendChild(categoryAnchor);
+      contentDiv.appendChild(titleAnchor);
+      contentDiv.appendChild(ratingDiv);
+      contentDiv.appendChild(priceBoxDiv);
+
+      newListings.appendChild(bannerDiv);
+      newListings.appendChild(contentDiv);
+
+      // Append newListings to the showcase
+      showcase.appendChild(newListings);
+    });
+  }
+</script>
+
+
+
+
+<div class="showcase">
+  <div class="showcase-banner">
+    <img
+      src="/assets/images/R.E.img/lestingPREA/house1.jpg"
+      alt="Mens Winter Leathers Jackets"
+      width="300"
+      class="product-img default"
+    />
+    <img
+      src="/assets/images/R.E.img/lestingPREA/house1.jpg"
+      alt="Mens Winter Leathers Jackets"
+      width="300"
+      class="product-img hover"
+    />
+
+    <p class="showcase-badge">15%</p>
+
+    <div class="showcase-actions">
+      <button class="btn-action">
+        <ion-icon name="heart-outline"></ion-icon>
+      </button>
+
+      <button class="btn-action">
+        <ion-icon name="eye-outline"></ion-icon>
+      </button>
+
+      <button class="btn-action">
+        <ion-icon name="repeat-outline"></ion-icon>
+      </button>
+
+      <button class="btn-action">
+        <ion-icon name="bag-add-outline"></ion-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="showcase-content">
+    <a href="#" class="showcase-category">jacket</a>
+
+    <a href="#">
+      <h3 class="showcase-title">Mens Winter Leathers Jackets</h3>
+    </a>
+
+    <div class="showcase-rating">
+      <ion-icon name="star"></ion-icon>
+      <ion-icon name="star"></ion-icon>
+      <ion-icon name="star"></ion-icon>
+      <ion-icon name="star-outline"></ion-icon>
+      <ion-icon name="star-outline"></ion-icon>
+    </div>
+
+    <div class="price-box">
+      <p class="price">$48.00</p>
+      <del>$75.00</del>
+    </div>
+  </div>
+</div>
+
+
+        (listing.filter(value => value.id != listingID)).forEach(listing => {
+            let newListings= document.createElement('a');
+            newListings.href = '/assets/pages/listings.html?id=' + listing.id;
+            newListings.classList.add('item');
+            newListings.innerHTML = 
+            `<img src="${listing.image}" alt="">
+            <h2>${listing.name}</h2>
+            <div class="price">$${listing.price}</div>`;
+            listProduct.appendChild(newListings);
+        });

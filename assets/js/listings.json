@@ -1,0 +1,224 @@
+[
+    {
+        "id": 1,
+        "badg":"15%",
+        "gategory":"For Rent 0000",
+        "name":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, neque?",
+        "price": 2000,
+        "location": "Ksar el kebir, Morocco, Africa 058 LOT OUD EL MAKHAZIN NO 358",
+        "deel": "<del>$75.00</del>",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, neque?",
+        "image": "/assets/images/R.E.img/lestingPREA/h01.jpg",
+        "image2hover": "/assets/images/R.E.img/lestingPREA/h02.jpg",
+        "image03": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image04": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image05": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image06": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image07": "/assets/images/R.E.img/lestingPREA/h05.jpg"
+    },
+    {
+        "id": 2,
+        "badg":"150%",
+        "gategory":"For Sell ",
+        "name":"10619 Lakemere Dr, Dallas, TX 752380000000 kamal el haddadi",
+        "price": 2000,
+        "location": "Ksar el kebir, Morocco, Africa 058 LOT OUD EL MAKHAZIN NO 358",
+
+        "deel": "<del>$75.00</del>",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, neque?",
+        "image": "/assets/images/R.E.img/lestingPREA/h01-2.jpg",
+        "image2hover": "/assets/images/R.E.img/lestingPREA/h01-4.jpg",
+        "image03": "/assets/images/R.E.img/lestingPREA/h01-2.jpg",
+        "image04": "/assets/images/R.E.img/lestingPREA/h01-3.jpg",
+        "image05": "/assets/images/R.E.img/lestingPREA/h01-4.jpg",
+        "image06": "/assets/images/R.E.img/lestingPREA/h01-5.jpg",
+        "image07": "/assets/images/R.E.img/lestingPREA/h01-6.jpg"
+        
+    },
+    {
+        "id": 3,
+        "badg":"10%",
+        "gategory":"For Rent",
+        "name":"10619 Lakemere Dr, Dallas, TX 752380000000",
+        "price": 150,
+        "location": "Ksar el kebir, Morocco, Africa 058 LOT OUD EL MAKHAZIN NO 358",
+
+        "deel": "<del>$75.00</del>",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.0000000000000000 Dicta, neque?",
+        "image": "/assets/images/R.E.img/lestingPREA/h07.jpg",
+        "image2hover": "/assets/images/R.E.img/lestingPREA/h06.jpg",
+        "image03": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image04": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image05": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image06": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image07": "/assets/images/R.E.img/lestingPREA/h05.jpg"
+        
+    },
+    {
+        "id": 4,
+        "badg":"50%",
+        "gategory":"For Sell ",
+        "name":"10619 Lakemere Dr, Dallas, TX 752380000000",
+        "price": 10000,
+        "location": "Ksar el kebir, Morocco, Africa 058 LOT OUD EL MAKHAZIN NO 358",
+
+        "deel": "<del>$75.00</del>",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, neque?",
+        "image": "/assets/images/R.E.img/lestingPREA/h03.jpg",
+        "image2hover": "/assets/images/R.E.img/lestingPREA/h07.jpg",
+        "image03": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image04": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image05": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image06": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image07": "/assets/images/R.E.img/lestingPREA/h05.jpg"
+        
+    },
+    {
+        "id": 5,
+        "badg":"20%",
+        "gategory":"For Rent",
+        "name":"Dar dyal kamal el haddadi ",
+        "price": 2500,
+        "location": "Ksar el kebir, Morocco, Africa 058 LOT OUD EL MAKHAZIN NO 358",
+        "deel": "<del>$75.00</del>",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, neque?",
+        "image": "/assets/images/R.E.img/lestingPREA/h041.jpg",
+        "image2hover": "/assets/images/R.E.img/lestingPREA/h042.jpg",
+        "image03": "/assets/images/R.E.img/lestingPREA/h043.jpg",
+        "image04": "/assets/images/R.E.img/lestingPREA/h044.jpg",
+        "image05": "/assets/images/R.E.img/lestingPREA/h045.jpg",
+        "image06": "/assets/images/R.E.img/lestingPREA/h046.jpg",
+        "image07": "/assets/images/R.E.img/lestingPREA/h047.jpg"
+        
+    },
+    {
+        "id": 6,
+        "badg":"20%",
+        "gategory":"For Rent",
+        "name":"Dar dyal kamal el haddadi ",
+        "price": 2500,
+        "location": "Ksar el kebir, Morocco, Africa 058 LOT OUD EL MAKHAZIN NO 358",
+
+        "deel": "<del>$75.00</del>",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, neque?",
+        "image": "/assets/images/R.E.img/lestingPREA/h04.jpg",
+        "image2hover": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image03": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image04": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image05": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image06": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image07": "/assets/images/R.E.img/lestingPREA/h05.jpg"
+        
+    },
+    {
+        "id": 7,
+        "badg":"20%",
+        "gategory":"For Rent",
+        "name":"Dar dyal kamal el haddadi ",
+        "price": 2500,
+        "location": "Ksar el kebir, Morocco, Africa 058 LOT OUD EL MAKHAZIN NO 358",
+
+        "deel": "<del>$75.00</del>",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, neque?",
+        "image": "/assets/images/R.E.img/lestingPREA/h04.jpg",
+        "image2hover": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image03": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image04": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image05": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image06": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image07": "/assets/images/R.E.img/lestingPREA/h05.jpg"
+        
+    },
+    {
+        "id": 8,
+        "badg":"20%",
+        "gategory":"For Rent",
+        "name":"Dar dyal kamal el haddadi ",
+        "price": 2500,
+        "location": "Ksar el kebir, Morocco, Africa 058 LOT OUD EL MAKHAZIN NO 358",
+
+        "deel": "<del>$75.00</del>",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, neque?",
+        "image": "/assets/images/R.E.img/lestingPREA/h04.jpg",
+        "image2hover": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image03": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image04": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image05": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image06": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image07": "/assets/images/R.E.img/lestingPREA/h05.jpg"
+        
+    },
+    {
+        "id": 9,
+        "badg":"20%",
+        "gategory":"For Rent",
+        "name":"Dar dyal kamal el haddadi ",
+        "price": 2500,
+        "location": "Ksar el kebir, Morocco, Africa 058 LOT OUD EL MAKHAZIN NO 358",
+
+        "deel": "<del>$75.00</del>",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, neque?",
+        "image": "/assets/images/R.E.img/lestingPREA/h04.jpg",
+        "image2hover": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image03": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image04": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image05": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image06": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image07": "/assets/images/R.E.img/lestingPREA/h05.jpg"
+        
+    },
+    {
+        "id": 10,
+        "badg":"20%",
+        "gategory":"For Rent",
+        "name":"Dar dyal kamal el haddadi ",
+        "price": 2500,
+        "location": "Ksar el kebir, Morocco, Africa 058 LOT OUD EL MAKHAZIN NO 358",
+
+        "deel": "<del>$75.00</del>",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, neque?",
+        "image": "/assets/images/R.E.img/lestingPREA/h04.jpg",
+        "image2hover": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image03": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image04": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image05": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image06": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image07": "/assets/images/R.E.img/lestingPREA/h05.jpg"
+    },
+    {
+        "id": 11,
+        "badg":"50%",
+        "gategory":"For Sell ",
+        "name":"10619 Lakemere Dr, Dallas, TX 752380000000",
+        "price": 10000,
+        "location": "Ksar el kebir, Morocco, Africa 058 LOT OUD EL MAKHAZIN NO 358",
+
+        "deel": "<del>$75.00</del>",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, neque?",
+        "image": "/assets/images/R.E.img/lestingPREA/h03.jpg",
+        "image2hover": "/assets/images/R.E.img/lestingPREA/h07.jpg",
+        "image03": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image04": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image05": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image06": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image07": "/assets/images/R.E.img/lestingPREA/h05.jpg"
+    },
+    {
+        "id": 12,
+        "badg":"20%",
+        "gategory":"For Rent",
+        "name":"Dar dyal kamal el haddadi ",
+        "price": 2500,
+        "location": "Ksar el kebir, Morocco, Africa 058 LOT OUD EL MAKHAZIN NO 358",
+
+        "deel": "<del>$75.00</del>",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, neque?",
+        "image": "/assets/images/R.E.img/lestingPREA/h04.jpg",
+        "image2hover": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image03": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image04": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image05": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image06": "/assets/images/R.E.img/lestingPREA/h05.jpg",
+        "image07": "/assets/images/R.E.img/lestingPREA/h05.jpg"
+    }
+]
