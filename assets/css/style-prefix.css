@@ -1876,13 +1876,31 @@ backdrop-filter: blur(7.5px);
 .listing-container .left-col{
   flex-basis: 60%;
 }
-/* <!-- right column goes here  --> */
-.listing-container  .right-col {
-  position: sticky;
-  top: 0; /* Adjust this value according to your layout */
-  height: 100vh; /* Adjust the height as needed */
-  overflow-y: auto; /* Enable vertical scrolling if content exceeds viewport height */
-  padding-top: 20px; /* Optional: Add padding to top to prevent content from sticking to the top edge */
+.right-col .chek-form{
+border: 1px solid grey;
+border-radius: var(--border-radius-md);
+padding: 10px;
+}
+.chek-formLi label{
+  display: block;
+  font-size: 16px;
+  font-weight: var(--weight-500);
+}
+.chek-formLi input{
+  border-radius: 5px;
+  padding: 0 5px;
+  border: 1px solid grey;
+  font-size: 16px;
+}
+.chek-formLi button{
+  margin-top: 15px;
+  background: #0051ff;
+  border: 0;
+  outline: none;
+  color: #080808;
+  padding: 5px;
+  width: 100%;
+  border-radius: 5px;
 }
 /* ------------------------- */
 /*------------------------------\
