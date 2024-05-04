@@ -105,7 +105,77 @@
         <p class="toast-meta"><time datetime="PT2M">2 Minutes</time> ago</p>
       </div>
     </div>
-
+    <div class="cartTab">
+      <div class="ti-showlist">
+        <h1>Your Wishlists</h1>
+        <button class="close"><ion-icon name="close-circle-outline" class="close"></ion-icon></button>
+      </div>
+        <div class="listCart">
+          <div class="item">
+            <div class="image">
+              <img src="/assets/images/testimonial-1.jpg" style="border-radius: 50%;" alt="">
+            </div>
+            <div class="name">
+              <h2 style="font-size: 20px;">Name</h2>
+            </div>
+            <div class="totalPrice">
+              <div class="price">Prices</div>
+            </div>
+            <button class="addCart">Check It</button>
+          </div>
+          <div class="item">
+            <div class="image">
+              <img src="/assets/images/testimonial-1.jpg" style="border-radius: 50%;" alt="">
+            </div>
+            <div class="name">
+              <h2>Name</h2>
+            </div>
+            <div class="totalPrice">
+              <div class="price">Prices</div>
+            </div>
+            <button class="addCart">Check It</button>
+          </div>
+          <div class="item">
+            <div class="image">
+              <img src="/assets/images/testimonial-1.jpg" style="border-radius: 50%;" alt="">
+            </div>
+            <div class="name">
+              <h2>Name</h2>
+            </div>
+            <div class="totalPrice">
+              <div class="price">Prices</div>
+            </div>
+            <button class="addCart">Check It</button>
+          </div>
+          <div class="item">
+            <div class="image">
+              <img src="/assets/images/testimonial-1.jpg" style="border-radius: 50%;" alt="">
+            </div>
+            <div class="name">
+              <h2>Name</h2>
+            </div>
+            <div class="totalPrice">
+              <div class="price">Prices</div>
+            </div>
+            <button class="addCart">Check It</button>
+          </div>
+          <div class="item">
+            <div class="image">
+              <img src="/assets/images/testimonial-1.jpg" style="border-radius: 50%;" alt="">
+            </div>
+            <div class="name">
+              <h2>Name</h2>
+            </div>
+            <div class="totalPrice">
+              <div class="price">Prices</div>
+            </div>
+            <button class="addCart">Check It</button>
+          </div>
+        </div>
+        <div class="btn">
+            <button class="checkOut">Contact Agent!</button>
+        </div>
+    </div>
     <!--
     - HEADER
   -->
@@ -217,11 +287,13 @@
           </div>
 
           <div class="header-user-actions">
-            <button class="action-btn">
-              <ion-icon name="heart-outline"></ion-icon>
-              <span class="count">0</span>
-            </button>
-<!-- 
+            <div class="icon-cart">
+              <button class="action-btn">
+                <ion-icon name="heart-outline"></ion-icon>
+                <span class="count">0</span>
+              </button>
+            </div>
+            <!-- 
             <button class="action-btn">
               <ion-icon name="bag-handle-outline"></ion-icon>
               <span class="count">0</span>
@@ -386,10 +458,12 @@
           <ion-icon name="home-outline"></ion-icon>
         </button>
 
-        <button class="action-btn">
-          <ion-icon name="heart-outline"></ion-icon>
-          <span class="count">0</span>
-        </button>
+        <div class="icon-cart">
+          <button class="action-btn">
+            <ion-icon name="heart-outline"></ion-icon>
+            <span class="count">030</span>
+          </button>
+        </div>
       </div>
 
       <nav class="mobile-navigation-menu has-scrollbar" data-mobile-menu>
@@ -1201,7 +1275,7 @@
         listing.forEach((listing) => {
           // create new Element items
           let newListings = document.createElement("a");
-          newListings.href = "/assets/pages/listings.html?id=" + listing.id;
+          newListings.href = "./assets/pages/listings.html?id=" + listing.id;
           newListings.classList.add("showcase");
           newListings.innerHTML = `
           
