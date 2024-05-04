@@ -1828,7 +1828,24 @@ body::-webkit-scrollbar-thumb:hover {
   #House listings
 \*-----------------------------------*/
 #listingsPage{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   min-height: 200vh;
+}
+.house-details .house-titel h1{
+  font-size: 26px;
+  color: var(--eerie-black);
+  font-weight: var(--weight-500);
 }
 .house-details{
   padding: 0 12%;
@@ -1846,6 +1863,20 @@ body::-webkit-scrollbar-thumb:hover {
   margin: 10px 0;
   gap: 10px;
 }
+.house-titel .row span,.locationLis{
+  color: var(--onyx);
+  font-weight: var(--weight-400);
+}
+.left-col .small-details h1{
+  font-size: 26px;
+  color: var(--eerie-black);
+  font-weight: var(--weight-700);
+}
+.left-col .small-details h3{
+  font-size: 18px;
+  color: var(--onyx);
+  font-weight: var(--weight-500);
+}
 .house-titel .row .sub-row .showcase-rating{
   color: rgb(255, 187, 0);
   display: flex;
@@ -1859,8 +1890,7 @@ body::-webkit-scrollbar-thumb:hover {
   color: rgb(255, 255, 255);
   border-radius: 20px;
   font-size: 13px;
-  /* From https://css.glass */
-background: rgba(26, 255, 75, 0.53);
+background: rgba(0, 156, 34, 0.53);
 border-radius: 16px;
 backdrop-filter: blur(7.5px);
 -webkit-backdrop-filter: blur(7.5px);
@@ -1888,6 +1918,15 @@ backdrop-filter: blur(7.5px);
 .small-details h3{
   font-weight: var(--weight-600);
   font: size 25px;
+}
+.read-more-container h2{
+  font-size: 26px;
+  font-weight:600;
+  color: var(--eerie-black);
+}
+.read-more-container p{
+  font-weight:400;
+  color: var(--onyx);
 }
 
 /*------------------------------\
@@ -2795,7 +2834,27 @@ footer {
 /**
  * responsive larger than 480px screen
  */
-
+ @media (min-width: 320px){
+  .gallery-leistings{
+  grid-template-areas: 'first first' '. .' '. .';
+  }
+  .check-form{
+    padding: 20px 30px;
+  }
+  .check-form div{
+    padding: 20px 0;
+    width: 100%;
+  }
+  .check-form input{
+    border-bottom: 1px solid var(--onyx);
+    width: 100%;
+    padding-bottom: 5px;
+  }
+  .check-form button{
+    margin-top: 20px;
+    width: 100%;
+  }
+ }
 @media (min-width: 480px) {
   /**
    * #CUSTOM PROPERTY
@@ -2916,6 +2975,14 @@ footer {
 
   .cta-btn {
     --fs-9: 1rem;
+  }
+  /*-----------------------------------*\
+  #House listings
+  \*-----------------------------------*/
+  .house-details .house-details h1{
+    font-size: 26px;
+    font-weight: var(--weight-500);
+    color: red;
   }
 
   /**
@@ -3060,6 +3127,9 @@ footer {
  */
 
 @media (min-width: 768px) {
+  .gallery-leistings{
+    grid-template-areas: 'first first' '. .' '. .';
+  }
   /**
    * #CUSTOM PROPERTY
    */
@@ -3264,6 +3334,9 @@ footer {
  */
 
 @media (min-width: 1024px) {
+  .gallery-leistings{
+    grid-template-areas: 'first first . .' 'first first . .';
+  }
   /**
    * #CUSTOM PROPERTY
    */
@@ -3766,6 +3839,9 @@ footer {
  */
 
 @media (min-width: 1200px) {
+  .gallery-leistings{
+    grid-template-areas: 'first first . .' 'first first . .';
+  }
   /**
    * #REUSED STYLE 
    */
@@ -3896,6 +3972,44 @@ footer {
  */
 
 @media (min-width: 1400px) {
+  .check-form{
+    margin: 30px 0;
+    padding-bottom: 30px;
+    background: #fff;
+    box-shadow: 0 0 30px rgba(37, 37, 37, 0.199);
+    border-radius: var(--border-radius-sm);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding:10px 50px ;
+  }
+  .check-form label{
+    display: block;
+  }
+  .check-form div{
+    padding: 15px;
+  }
+  .check-form input{
+    background: transparent;
+    border: 0;
+    outline: none;
+  }
+  .check-form button{
+    background: var(--salmon-pink);
+    border: 0;
+    outline: none;
+    padding: 18px ;
+    width: 210px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: var(--weight-600);
+  }
+  .gallery-leistings{
+    display: grid;
+    grid-gap: 10px;
+    grid-template-areas: 'first first . .' 'first first . .';
+    margin: 20px 0;
+  }
   /**
    * #BASE 
    */
