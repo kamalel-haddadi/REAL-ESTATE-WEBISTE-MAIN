@@ -88,3 +88,204 @@ for (let i = 0; i < accordionBtn.length; i++) {
   };
   
   
+
+
+
+
+  // Get the modal
+  var modalWish = document.getElementById("Wishlist-Mdales");
+  var btn = document.getElementById("whishlistBtn");
+  var span = document.getElementsByClassName("closeWhishlist")[0];
+  btn.onclick = function () {
+    modalWish.style.display = "block";
+  };
+  span.onclick = function () {
+    modalWish.style.display = "none";
+  };
+  window.onclick = function (event) {
+    if (event.target == modalWish) {
+      modalWish.style.display = "none";
+    }
+  };
+
+  let listing = null;
+  fetch("/assets/js/listings.json")
+    .then((Response) => Response.json())
+    .then((data) => {
+      listing = data;
+      console.log(listing);
+      addDataToHTML();
+    });
+  // adding data listing to html probeblu its hard
+  let listingProduct = document.querySelector(".product-grid");
+  function addDataToHTML() {
+    listing.forEach((listing) => {
+      // create new Element items
+      let newListings = document.createElement("a");
+      newListings.href = "./assets/pages/listings.html?id=" + listing.id;
+      newListings.dataset.id = listing.id;
+      newListings.classList.add("showcase");
+      newListings.innerHTML = `
+        
+              <div class="showcase-banner">
+            <img
+              src="${listing.image}"
+              alt="Mens Winter Leathers Jackets"
+              width="300"
+              class="product-img default"
+            />
+            <img
+              src="${listing.image2hover}"
+              alt="Mens Winter Leathers Jackets"
+              width="300"
+              class="product-img hover"
+            />
+
+            <p class="showcase-badge">${listing.badg}</p>
+
+            <div class="showcase-actions">
+              <button class="btn-action">
+
+                  <ion-icon name="heart-outline" class="btn-actionT"></ion-icon>
+                </a>
+              </button>
+
+              <button class="btn-action">
+                <ion-icon name="eye-outline"></ion-icon>
+              </button>
+            </div>
+          </div>
+
+        <div class="showcase-content">
+          <a href="#" class="showcase-category">${listing.gategory}</a>
+          <a href="#">
+          <h3 class="showcase-title">${listing.name}</h3>
+
+          </a>
+          <div class="showcase-rating">
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star-outline"></ion-icon>
+          <ion-icon name="star-outline"></ion-icon>
+          </div>
+
+          <div class="price-box">
+        <p class="price">$${listing.price}</p>
+        <del>$${listing.deel}</del>
+        </div>
+        </div>
+        `;
+      listingProduct.appendChild(newListings);
+    });
+  }
+  let products = [];
+  let cart = [];
+  // Add listing to wishlist
+  listingProduct.addEventListener('click', (event) => {
+    if (event.target.classList.contains('btn-actionT')) {
+      event.preventDefault();
+      event.stopPropagation();
+      let anchorElement = event.target.closest('.showcase');
+      if (anchorElement) {
+        let id_product = anchorElement.dataset.id;
+        // alert(id_product);
+        addTowidhList(id_product);
+      }
+    }
+  });
+  document.addEventListener('DOMContentLoaded', function () {
+    let listingProduct = document.querySelector(".product-grid");
+    let listing;  // This holds your JSON data
+
+    // Fetch your listings JSON data
+    fetch("/assets/js/listings.json")
+      .then(response => response.json())
+      .then(data => {
+        listing = data;
+        // Load wishlist items from localStorage on initial load
+        loadWishlistItems();
+      });
+
+    listingProduct.addEventListener('click', (event) => {
+      if (event.target.classList.contains('btn-actionT')) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        let anchorElement = event.target.closest('.showcase');
+        if (anchorElement) {
+          let id_product = anchorElement.dataset.id;
+          updateWishlistModal(id_product);
+          showToast("Item added to wishlist!");
+        }
+      }
+    });
+
+    function updateWishlistModal(id) {
+      const listingItem = listing.find(item => item.id.toString() === id);
+      if (!listingItem) {
+        console.error("Listing not found for ID:", id);
+        return;
+      }
+
+      const now = new Date();
+      const dateString = now.toISOString().split('T')[0];
+
+      const entry = {
+        id: listingItem.id,
+        image: listingItem.image,
+        name: listingItem.name,
+        dateAdded: dateString
+      };
+
+      let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+      wishlist.push(entry);
+      localStorage.setItem('wishlist', JSON.stringify(wishlist));
+
+      addWishlistItemToDOM(entry);
+      updateWishlistCount();
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.style.display = 'block';
+
+     
+      setTimeout(() => {
+        toast.style.display = 'none';
+      }, 3000);
+    }
+
+    function addWishlistItemToDOM(entry) {
+      const entryHTML = `
+        <div class="sub-cardItem">
+            <img src="${entry.image}" alt="">
+            <p class="wishlist-listing-name">${entry.name}</p>
+            <p>added on: ${entry.dateAdded}</p>
+        </div>
+      `;
+
+      const modalContent = document.querySelector('.whislist-card');
+      modalContent.innerHTML += entryHTML;
+    }
+
+    function loadWishlistItems() {
+      const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+      wishlist.forEach(item => addWishlistItemToDOM(item));
+      updateWishlistCount();  // Update count when items are loaded
+    }
+
+    function updateWishlistCount() {
+      const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+      const count = wishlist.length;
+      const countSpan = document.querySelector('#whishlistBtn .count');
+      countSpan.textContent = count;
+    }
+
+    document.querySelector('.closeWhishlist').addEventListener('click', function () {
+      document.getElementById('Wishlist-Mdales').style.display = 'none';
+    });
+  });
+
+
