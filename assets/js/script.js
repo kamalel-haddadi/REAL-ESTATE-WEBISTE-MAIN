@@ -71,12 +71,20 @@ for (let i = 0; i < accordionBtn.length; i++) {
   });
 }
 
-let iconCart = document.querySelector('.icon-cart');
-let body = document.querySelector('body');
-let closeCart = document.querySelector('.close');
-iconCart.addEventListener('click', () => {
-  body.classList.toggle('showCart');
-})
-closeCart.addEventListener('click', () => {
-  body.classList.toggle('showCart');
-})
+  // Get the modal
+  var modalWish = document.getElementById("Wishlist-Mdales");
+  var btn = document.getElementById("whishlistBtn");
+  var span = document.getElementsByClassName("closeWhishlist")[0];
+  btn.onclick = function () {
+      modalWish.style.display = "block";
+  };
+  span.onclick = function () {
+      modalWish.style.display = "none";
+  };
+  window.onclick = function (event) {
+      if (event.target == modalWish) {
+          modalWish.style.display = "none";
+      }
+  };
+  
+  

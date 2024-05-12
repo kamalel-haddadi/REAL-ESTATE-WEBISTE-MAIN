@@ -34,6 +34,24 @@
   <body>
     <div class="overlay" data-overlay></div>
 
+
+    <!--
+    - WIDHLIST  MODAL
+  -->
+  <!-- The Modal -->
+  <div id="Wishlist-Mdales" class="Wishlist-Mdales" >
+      <!-- Modal content -->
+      <div class="whislist-contnet">
+          <div class="modal-navbar">
+              <div class="newsletter-header nh-st newsletter-backround">
+                  <ion-icon name="close-circle-outline" class="closeWhishlist"></ion-icon>
+                  <h3 class="newsletter-title ntit">Wishlists</h3>
+              </div>
+          </div>
+              <div class="whislist-card">
+          </div>
+      </div>
+  </div>
     <!--
     - MODAL
   -->
@@ -82,6 +100,11 @@
     <!--
     - NOTIFICATION TOAST
   -->
+  <div id="toast" class="toast">
+    <div class="toast-content">Item added to wishlist!</div>
+    <div class="toast-meta">Date: May 15, 2024</div>
+    <div class="toast-loading"></div>
+</div>
 
     <div class="notification-toast" data-toast>
       <button class="toast-close-btn" data-toast-close>
@@ -104,65 +127,6 @@
 
         <p class="toast-meta"><time datetime="PT2M">2 Minutes</time> ago</p>
       </div>
-    </div>
-    <div class="cartTab">
-      <div class="ti-showlist">
-        <h1>Your Wishlists</h1>
-        <button class="close"><ion-icon name="close-circle-outline" class="close"></ion-icon></button>
-      </div>
-        <div class="listCart">
-          <div class="item">
-            <div class="image">
-              <img src="/assets/images/testimonial-1.jpg" style="border-radius: 50%;" alt="">
-            </div>
-            <div class="name">
-              <h2 style="font-size: 20px;">Name</h2>
-            </div>
-          </div>
-          <div class="item">
-            <div class="image">
-              <img src="/assets/images/testimonial-1.jpg" style="border-radius: 50%;" alt="">
-            </div>
-            <div class="name">
-              <h2 style="font-size: 20px;">Name</h2>
-            </div>
-          </div>
-          <div class="item">
-            <div class="image">
-              <img src="/assets/images/testimonial-1.jpg" style="border-radius: 50%;" alt="">
-            </div>
-            <div class="name">
-              <h2 style="font-size: 20px;">Name</h2>
-            </div>
-          </div>
-          <div class="item">
-            <div class="image">
-              <img src="/assets/images/testimonial-1.jpg" style="border-radius: 50%;" alt="">
-            </div>
-            <div class="name">
-              <h2 style="font-size: 20px;">Name</h2>
-            </div>
-          </div>
-          <div class="item">
-            <div class="image">
-              <img src="/assets/images/testimonial-1.jpg" style="border-radius: 50%;" alt="">
-            </div>
-            <div class="name">
-              <h2 style="font-size: 20px;">Name</h2>
-            </div>
-          </div>
-          <div class="item">
-            <div class="image">
-              <img src="/assets/images/testimonial-1.jpg" style="border-radius: 50%;" alt="">
-            </div>
-            <div class="name">
-              <h2 style="font-size: 20px;">Name</h2>
-            </div>
-          </div>
-        </div>
-        <div class="btn">
-            <button class="checkOut">Contact Agent!</button>
-        </div>
     </div>
     <!--
     - HEADER
@@ -275,7 +239,7 @@
           </div>
 
           <div class="header-user-actions">
-            <div class="icon-cart">
+            <div id="whishlistBtn">
               <button class="action-btn">
                 <ion-icon name="heart-outline"></ion-icon>
                 <span class="count">0</span>
@@ -446,10 +410,10 @@
           <ion-icon name="home-outline"></ion-icon>
         </button>
 
-        <div class="icon-cart">
-          <button class="action-btn">
+        <div id="whishlistBtn">
+          <button class="action-btn" data-wishlist-btn>
             <ion-icon name="heart-outline"></ion-icon>
-            <span class="count">030</span>
+            <span class="count">30</span>
           </button>
         </div>
       </div>
@@ -465,7 +429,7 @@
 
         <ul class="mobile-menu-category-list">
           <li class="menu-category">
-            <a href="#" class="menu-title">Home</a>
+            <a href="#Wishlist-Mdales" class="menu-title">Home</a>
           </li>
 
           <li class="menu-category">
@@ -1249,6 +1213,24 @@
     ></script>
     <!-- get data form listings.json -->
     <script>
+
+      
+  // Get the modal
+  var modalWish = document.getElementById("Wishlist-Mdales");
+  var btn = document.getElementById("whishlistBtn");
+  var span = document.getElementsByClassName("closeWhishlist")[0];
+  btn.onclick = function () {
+      modalWish.style.display = "block";
+  };
+  span.onclick = function () {
+      modalWish.style.display = "none";
+  };
+  window.onclick = function (event) {
+      if (event.target == modalWish) {
+          modalWish.style.display = "none";
+      }
+  };
+
       let listing = null;
       fetch("/assets/js/listings.json")
         .then((Response) => Response.json())
@@ -1264,6 +1246,7 @@
           // create new Element items
           let newListings = document.createElement("a");
           newListings.href = "./assets/pages/listings.html?id=" + listing.id;
+          newListings.dataset.id = listing.id;
           newListings.classList.add("showcase");
           newListings.innerHTML = `
           
@@ -1285,8 +1268,8 @@
 
               <div class="showcase-actions">
                 <button class="btn-action">
-                  <a href="/assets/pages/OAuth.html">
-                    <ion-icon name="heart-outline"></ion-icon>
+
+                    <ion-icon name="heart-outline" class="btn-actionT"></ion-icon>
                   </a>
                 </button>
 
@@ -1319,6 +1302,117 @@
           listingProduct.appendChild(newListings);
         });
       }
+      let products = [];
+      let cart = [];
+      // Add listing to wishlist
+      listingProduct.addEventListener('click', (event) => {
+        if (event.target.classList.contains('btn-actionT')) {
+          event.preventDefault(); 
+          event.stopPropagation(); 
+          let anchorElement = event.target.closest('.showcase');
+          if (anchorElement) {
+            let id_product = anchorElement.dataset.id;
+            // alert(id_product);
+            addTowidhList(id_product);
+          }
+        }
+      });
+      document.addEventListener('DOMContentLoaded', function() {
+    let listingProduct = document.querySelector(".product-grid");
+    let listing;  // This holds your JSON data
+
+    // Fetch your listings JSON data
+    fetch("/assets/js/listings.json")
+        .then(response => response.json())
+        .then(data => {
+            listing = data;
+            // Load wishlist items from localStorage on initial load
+            loadWishlistItems();
+        });
+
+    listingProduct.addEventListener('click', (event) => {
+        if (event.target.classList.contains('btn-actionT')) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            let anchorElement = event.target.closest('.showcase');
+            if (anchorElement) {
+                let id_product = anchorElement.dataset.id;
+                updateWishlistModal(id_product);
+                showToast("Item added to wishlist!"); // Show toast notification
+            }
+        }
+    });
+
+    function updateWishlistModal(id) {
+        const listingItem = listing.find(item => item.id.toString() === id);
+        if (!listingItem) {
+            console.error("Listing not found for ID:", id);
+            return;  // Exit if no item found
+        }
+
+        const now = new Date();
+        const dateString = now.toISOString().split('T')[0];
+
+        const entry = {
+            id: listingItem.id,
+            image: listingItem.image,
+            name: listingItem.name,
+            dateAdded: dateString
+        };
+
+        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+        wishlist.push(entry);
+        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+
+        addWishlistItemToDOM(entry);
+        updateWishlistCount();
+    }
+
+    function showToast(message) {
+        const toast = document.getElementById('toast');
+        toast.textContent = message;  // Set the text for the toast message
+        toast.style.display = 'block';  // Show the toast
+
+        // Hide the toast after 3 seconds
+        setTimeout(() => {
+            toast.style.display = 'none';
+        }, 3000);
+    }
+
+    function addWishlistItemToDOM(entry) {
+        const entryHTML = `
+          <div class="sub-cardItem">
+              <img src="${entry.image}" alt="">
+              <p class="wishlist-listing-name">${entry.name}</p>
+              <p>added on: ${entry.dateAdded}</p>
+          </div>
+        `;
+
+        const modalContent = document.querySelector('.whislist-card');
+        modalContent.innerHTML += entryHTML;
+    }
+
+    function loadWishlistItems() {
+        const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+        wishlist.forEach(item => addWishlistItemToDOM(item));
+        updateWishlistCount();  // Update count when items are loaded
+    }
+
+    function updateWishlistCount() {
+        const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+        const count = wishlist.length;
+        const countSpan = document.querySelector('#whishlistBtn .count');
+        countSpan.textContent = count;
+    }
+
+    document.querySelector('.closeWhishlist').addEventListener('click', function() {
+        document.getElementById('Wishlist-Mdales').style.display = 'none';
+    });
+});
+
+
+
     </script>
   </body>
 </html>

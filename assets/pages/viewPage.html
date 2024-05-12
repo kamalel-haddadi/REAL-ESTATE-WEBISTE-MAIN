@@ -1,11 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/assets/css/modele.css">
+    <!-- <link rel="stylesheet" href="/assets/css/style-prefix.css"> -->
+    <link rel="shortcut icon" href="/assets/images/R.E.img/logo/icon.svg" type="image/x-icon" />
 </head>
+
 <body>
-    
+    <!--
+    - WIDHLIST  MODAL
+  -->
+    <button id="whishlist-Btn"><a href="#">Contact agent</a></button>
+
+    <!-- The Modal -->
+    <div id="Wishlist-Mdales" class="Wishlist-Mdales" >
+        <!-- Modal content -->
+        <div class="whislist-contnet">
+            <div class="modal-navbar">
+                <div class="newsletter-header nh-st newsletter-backround">
+                    <ion-icon name="close-circle-outline" class="closeWhishlist"></ion-icon>
+                    <h3 class="newsletter-title ntit">Wishlists</h3>
+                </div>
+            </div>
+                <div class="whislist-card">
+                    <div class="sub-cardItem">
+                        <img src="/assets/images/R.E.img/lestingPREA/h07.jpg" alt="">
+                        <p class="wishlist-listing-name">221 Cutu Pass</p>
+                        <p>added at : 18:58:47</p>
+                    </div>
+                    <div class="sub-cardItem">
+                        <img src="/assets/images/R.E.img/lestingPREA/h07.jpg" alt="">
+                        <p class="wishlist-listing-name">221 Cutu Pass</p>
+                        <p>added at : 15:20:34</p>
+                    </div>
+                    <div class="sub-cardItem">
+                        <img src="/assets/images/R.E.img/lestingPREA/h07.jpg" alt="">
+                        <p class="wishlist-listing-name">221 Cutu Pass</p>
+                        <p>added at : 05:54:24</p>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Get the modal
+        var modal = document.getElementById("Wishlist-Mdales");
+        var btn = document.getElementById("whishlist-Btn");
+        var span = document.getElementsByClassName("closeWhishlist")[0];
+        btn.onclick = function () {
+            modal.style.display = "block";
+        };
+        span.onclick = function () {
+            modal.style.display = "none";
+        };
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+    </script>
+    <!--
+    - ionicon link
+  -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>
