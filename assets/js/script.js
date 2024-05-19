@@ -179,9 +179,12 @@ function addDataToHTML() {
     listingProduct.appendChild(newListings);
   });
 }
+
+
+// Add listing to wishlist
+
 let products = [];
 let cart = [];
-// Add listing to wishlist
 listingProduct.addEventListener('click', (event) => {
   if (event.target.classList.contains('btn-actionT')) {
     event.preventDefault();
@@ -194,6 +197,7 @@ listingProduct.addEventListener('click', (event) => {
     }
   }
 });
+
 document.addEventListener('DOMContentLoaded', function () {
   let listingProduct = document.querySelector(".product-grid");
   let listing;  // This holds your JSON data
@@ -251,7 +255,6 @@ document.addEventListener('DOMContentLoaded', function () {
     toast.textContent = message;
     toast.style.display = 'block';
 
-
     setTimeout(() => {
       toast.style.display = 'none';
     }, 3000);
@@ -259,10 +262,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function addWishlistItemToDOM(entry) {
     const entryHTML = `
-        <div class="sub-cardItem">
-            <img src="${entry.image}" alt="">
+        <div class="sub-cardItem" data-id="${entry.id}">
+          <ion-icon name="close-circle-outline" class="removeFromWishlist"></ion-icon>
+          <img src="${entry.image}" alt="">
+          <div id="toolTrip-text">
             <p class="wishlist-listing-name">${entry.name}</p>
-            <p>added on: ${entry.dateAdded}</p>
+            <p class="datetime">added on: ${entry.dateAdded}</p>
+          </div>
         </div>
       `;
 
@@ -286,6 +292,27 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelector('.closeWhishlist').addEventListener('click', function () {
     document.getElementById('Wishlist-Mdales').style.display = 'none';
   });
+
+  // Add event listener for removing items from wishlist
+  document.querySelector('.whislist-card').addEventListener('click', function (event) {
+    if (event.target.classList.contains('removeFromWishlist')) {
+      const subCardItem = event.target.closest('.sub-cardItem');
+      if (subCardItem) {
+        const id = subCardItem.dataset.id;
+        removeFromWishlist(id);
+        subCardItem.remove();
+        updateWishlistCount();
+      }
+    }
+  });
+
+  function removeFromWishlist(id) {
+    let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+    wishlist = wishlist.filter(item => item.id.toString() !== id);
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+  }
 });
 
 
+
+// google translate API Intgration
