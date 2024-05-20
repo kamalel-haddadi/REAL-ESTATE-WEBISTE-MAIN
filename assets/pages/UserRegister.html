@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="/assets/css/OAuthUser.css" />
+    <!--
+    - favicon
+  -->
+    <link rel="shortcut icon" href="/assets/images/R.E.img/logo/icon.svg" type="image/x-icon" />
+    <!--
+    - google font link
+  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+
+    <title>User - Registration</title>
+</head>
+
+<body>
+    <div class="container">
+        <form action="#">
+            <div class="form first">
+                <header>Registration</header>
+                <br />
+                <div class="details personal">
+                    <span class="title">Personal Details</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="Enter your name" required />
+                        </div>
+
+                        <div class="input-field">
+                            <label>Email</label>
+                            <input type="text" placeholder="Enter your email" required />
+                        </div>
+
+                        <div class="input-field">
+                            <label>Password</label>
+                            <input type="password" placeholder="Enter password" required />
+                        </div>
+
+                        <div class="input-field">
+                            <label>Confirm password</label>
+                            <input type="password" placeholder="Confirm password" required />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details">
+                    <span class="title">Choose the account you wish to register with.</span>
+
+                    <div class="fields-OAuth">
+                        <div class="google-OAuthentification">
+                            <a href="#">Sign up with Google</a>
+                        </div>
+                        <div class="google-OAuthentification">
+                            <a href="#">Sign up with GitHub</a>
+                        </div>
+                        <button type="button" class="nextBtn">
+                            <span class="btnText">Sign up</span>
+                            <i class="uil uil-navigator"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const form = document.querySelector("form"),
+              nextBtn = form.querySelector(".nextBtn"),
+              allInput = form.querySelectorAll(".first input");
+    
+        nextBtn.addEventListener("click", () => {
+            let allFilled = true;
+            allInput.forEach((input) => {
+                if (input.value === "") {
+                    allFilled = false;
+                }
+            });
+    
+            if (allFilled) {
+                window.location.href = '/assets/pages/loginPage.html'; 
+            } else {
+                alert("Please fill out all fields.");
+            }
+        });
+    
+    </script>
+    
+    <!-- <script src="/assets/js/script.js"></script> -->
+</body>
+</html>
