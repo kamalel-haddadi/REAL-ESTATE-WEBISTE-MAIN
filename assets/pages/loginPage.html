@@ -1,36 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login to you account</title>
+    <title>Login to Your Account</title>
     <link rel="stylesheet" href="/assets/css/login.css">
 </head>
-<body>
-    <div class="form second" >
-        <div class="loginDetails address">
-            <span class="title">Login Page </span>
-        </div>
 
+<body>
+    <script src="https://kit.fontawesome.com/b878b926f7.js" crossorigin="anonymous"></script>
+    <div class="form second">
+        <div class="loginDetails address">
+            <span class="title">Login Page</span>
+        </div>
+        <div class="login-choices">
+            <div class="input-field">
+                <button class="submit" name="google">
+                    <i class="fa-brands fa-google"></i>
+                    Log in with Google
+                </button>
+            </div>
+            <div class="input-field">
+                <button class="submit" name="github">
+                    <i class="fa-brands fa-github"></i>
+                    Log in with Github
+                </button>
+            </div>
+        </div>
+        <legend><hr width="100%" size="1"> or <hr width="100%" size="1"></legend>
         <div class="loginDetails" style="overflow: hidden">
             <div class="fields">
                 <div class="input-field">
                     <label>Email</label>
-                    <input type="text" placeholder="Enter your email" required />
+                    <input type="email" placeholder="Enter your email" required />
                 </div>
-
                 <div class="input-field">
                     <label>Password</label>
                     <input type="password" placeholder="Enter password" required />
                 </div>
             </div>
-
             <div class="buttons">
                 <div class="input-field">
                     <button class="submit">Sign in</button>
+                    <button class="submit-Signup">Still not registered? <a href="/assets/pages/UserRegister.html">Sign up</a></button>
                 </div>
             </div>
         </div>
     </div>
+    <!-- <script src="/assets/js/script.js"></script> -->
 </body>
+
 </html>

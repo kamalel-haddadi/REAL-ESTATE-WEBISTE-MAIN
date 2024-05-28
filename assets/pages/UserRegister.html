@@ -6,20 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!----======== CSS ======== -->
+    <!-- CSS -->
     <link rel="stylesheet" href="/assets/css/OAuthUser.css" />
-    <!--
-    - favicon
-  -->
+    <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/images/R.E.img/logo/icon.svg" type="image/x-icon" />
-    <!--
-    - google font link
-  -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet" />
-    <!----===== Iconscout CSS ===== -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <!-- Iconscout CSS -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
 
     <title>User - Registration</title>
@@ -27,78 +22,113 @@
 
 <body>
     <div class="container">
-        <form action="#">
+        <form id="registrationForm">
             <div class="form first">
                 <header>Registration</header>
                 <br />
                 <div class="details personal">
                     <span class="title">Personal Details</span>
-
                     <div class="fields">
                         <div class="input-field">
                             <label>Full Name</label>
                             <input type="text" placeholder="Enter your name" required />
                         </div>
-
                         <div class="input-field">
                             <label>Email</label>
-                            <input type="text" placeholder="Enter your email" required />
+                            <input type="email" placeholder="Enter your email" required />
                         </div>
-
                         <div class="input-field">
                             <label>Password</label>
-                            <input type="password" placeholder="Enter password" required />
+                            <input type="password" id="password" placeholder="Enter password" oninput="checkPasswordMatch()" required />
+                            <i class="fas fa-eye toggle-password" onclick="togglePasswordVisibility('password', this)"></i>
                         </div>
-
                         <div class="input-field">
-                            <label>Confirm password</label>
-                            <input type="password" placeholder="Confirm password" required />
+                            <label>Confirm Password</label>
+                            <input type="password" id="confirmPassword" placeholder="Confirm password" oninput="checkPasswordMatch()" required />
+                            <i class="fas fa-eye toggle-password" onclick="togglePasswordVisibility('confirmPassword', this)"></i>
                         </div>
+                        <div id="passwordMatch"></div>
                     </div>
                 </div>
+                
+                <legend><hr width="100%" size="1"> or <hr width="100%" size="1"></legend>
 
                 <div class="details">
-                    <span class="title">Choose the account you wish to register with.</span>
-
+                    <span class="title-o">Choose the account you wish to register with.</span>
+                    <div class="login-choices">
+                        <div class="input-field">
+                            <button class="submit" name="google">
+                                <i class="fa-brands fa-google"></i>
+                                Log in with Google
+                            </button>
+                        </div>
+                        <div class="input-field">
+                            <button class="submit" name="github">
+                                <i class="fa-brands fa-github"></i>
+                                Log in with Github
+                            </button>
+                        </div>
+                    </div>
                     <div class="fields-OAuth">
-                        <div class="google-OAuthentification">
-                            <a href="#">Sign up with Google</a>
-                        </div>
-                        <div class="google-OAuthentification">
-                            <a href="#">Sign up with GitHub</a>
-                        </div>
-                        <button type="button" class="nextBtn">
+                        <button type="submit" class="nextBtn">
                             <span class="btnText">Sign up</span>
                             <i class="uil uil-navigator"></i>
                         </button>
+                        <span class="gotologin">Already have an account? <a href="/assets/pages/loginPage.html">Log in</a></span>
                     </div>
                 </div>
             </div>
         </form>
     </div>
-
     <script>
-        const form = document.querySelector("form"),
-              nextBtn = form.querySelector(".nextBtn"),
-              allInput = form.querySelectorAll(".first input");
-    
-        nextBtn.addEventListener("click", () => {
+        const registrationForm = document.getElementById('registrationForm');
+        const nextBtn = registrationForm.querySelector('.nextBtn');
+        const allInputs = registrationForm.querySelectorAll('.first input');
+
+        nextBtn.addEventListener('click', (event) => {
+            event.preventDefault(); // Prevent form submission
             let allFilled = true;
-            allInput.forEach((input) => {
-                if (input.value === "") {
+            allInputs.forEach(input => {
+                if (input.value === '') {
                     allFilled = false;
                 }
             });
-    
+
             if (allFilled) {
-                window.location.href = '/assets/pages/loginPage.html'; 
+                window.location.href = '/assets/pages/loginPage.html';
             } else {
-                alert("Please fill out all fields.");
+                alert('Please fill out all fields.');
             }
         });
-    
+
+        function togglePasswordVisibility(fieldId, icon) {
+            const field = document.getElementById(fieldId);
+            const fieldType = field.getAttribute('type');
+            if (fieldType === 'password') {
+                field.setAttribute('type', 'text');
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                field.setAttribute('type', 'password');
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+
+        function checkPasswordMatch() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const passwordMatchMessage = document.getElementById('passwordMatch');
+
+            if (password === confirmPassword) {
+                passwordMatchMessage.textContent = '';
+                passwordMatchMessage.style.color = '';
+            } else {
+                passwordMatchMessage.textContent = 'Passwords do not match';
+                passwordMatchMessage.style.color = 'red';
+            }
+        }
     </script>
-    
-    <!-- <script src="/assets/js/script.js"></script> -->
+    <script src="https://kit.fontawesome.com/b878b926f7.js" crossorigin="anonymous"></script>
 </body>
 </html>

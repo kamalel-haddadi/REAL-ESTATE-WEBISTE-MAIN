@@ -316,20 +316,68 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // google Oauthentification with google and github
+// const form = document.querySelector("form"),
+//         nextBtn = form.querySelector(".nextBtn"),
+//         backBtn = form.querySelector(".backBtn"),
+//         allInput = form.querySelectorAll(".first input");
+
+
+// nextBtn.addEventListener("click", ()=> {
+//     allInput.forEach(input => {
+//         if(input.value != ""){
+//             form.classList.add('secActive');
+//         }else{
+//             form.classList.remove('secActive');
+//         }
+//     })
+// })
+
+// backBtn.addEventListener("click", () => form.classList.remove('secActive'));
 const form = document.querySelector("form"),
-        nextBtn = form.querySelector(".nextBtn"),
-        backBtn = form.querySelector(".backBtn"),
-        allInput = form.querySelectorAll(".first input");
+              nextBtn = form.querySelector(".nextBtn"),
+              allInput = form.querySelectorAll(".first input");
+    
+        nextBtn.addEventListener("click", () => {
+            let allFilled = true;
+            allInput.forEach((input) => {
+                if (input.value === "") {
+                    allFilled = false;
+                }
+            });
+    
+            if (allFilled) {
+                window.location.href = '/assets/pages/loginPage.html'; 
+            } else {
+                alert("Please fill out all fields.");
+            }
+        });
 
 
-nextBtn.addEventListener("click", ()=> {
-    allInput.forEach(input => {
-        if(input.value != ""){
-            form.classList.add('secActive');
-        }else{
-            form.classList.remove('secActive');
+        function togglePasswordVisibility(fieldId, icon) {
+            const field = document.getElementById(fieldId);
+            const fieldType = field.getAttribute('type');
+            if (fieldType === 'password') {
+                field.setAttribute('type', 'text');
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                field.setAttribute('type', 'password');
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
         }
-    })
-})
 
-backBtn.addEventListener("click", () => form.classList.remove('secActive'));
+        function checkPasswordMatch() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const passwordMatchMessage = document.getElementById('passwordMatch');
+
+            if (password === confirmPassword) {
+                passwordMatchMessage.textContent = '';
+                passwordMatchMessage.style.color = '';
+            } else {
+                passwordMatchMessage.textContent = 'Passwords do not match';
+                passwordMatchMessage.style.color = 'red';
+            }
+        }
+    
